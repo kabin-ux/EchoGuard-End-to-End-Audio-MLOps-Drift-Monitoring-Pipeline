@@ -1,0 +1,22 @@
+# monitoring/grafana/provisioning/datasources/prometheus.yml
+# ─────────────────────────────────────────────────────────────────────────────
+# Grafana datasource provisioning file.
+# Grafana reads this on startup and automatically registers the Prometheus
+# datasource — no manual UI configuration required.
+# ─────────────────────────────────────────────────────────────────────────────
+
+apiVersion: 1
+
+datasources:
+  - name: Prometheus
+    type: prometheus
+    uid: prometheus-ds          # Stable UID referenced by dashboard panels
+    access: proxy               # Grafana server proxies requests to Prometheus
+    url: http://prometheus:9090 # Resolved via Docker Compose network alias
+    isDefault: true
+    editable: false             # Prevent accidental UI edits
+    jsonData:
+      httpMethod: POST
+      timeInterval: "5s"        # Matches Prometheus scrape_interval
+      queryTimeout: "30s"
+    version: 1

@@ -1,0 +1,48 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# monitoring/prometheus.yml
+# Prometheus scrape configuration for the audio-genre-classification pipeline.
+# ─────────────────────────────────────────────────────────────────────────────
+
+global:
+  scrape_interval:     5s   # Scrape all targets every 5 seconds
+  evaluation_interval: 5s   # Evaluate rules every 5 seconds
+  scrape_timeout:      4s   # Timeout after 4 seconds (must be < scrape_interval)
+
+  # External labels applied to all metrics when federating or alerting
+  external_labels:
+    environment: "production"
+    service:     "audio-genre-classifier"
+
+# ── Alerting (optional — configure if you add Alertmanager) ──────────────────
+# alerting:
+#   alertmanagers:
+#     - static_configs:
+#         - targets: ["alertmanager:9093"]
+
+# ── Rule files (add recording/alerting rules here) ───────────────────────────
+rule_files:
+  # - "rules/drift_alerts.yml"
+
+# ── Scrape configurations ─────────────────────────────────────────────────────
+scrape_configs:
+
+  # ── Self-monitoring: Prometheus itself ───────────────────────────────────
+  - job_name: "prometheus"
+    static_configs:
+      - targets: ["localhost:9090"]
+        labels:
+          component: "prometheus"
+
+  # ── FastAPI web service ───────────────────────────────────────────────────
+  - job_name: "audio-genre-api"
+    scrape_interval: 5s          # Override global: faster refresh for ML metrics
+    metrics_path: "/metrics"
+    static_configs:
+      - targets: ["web:8000"]    # Docker Compose service name resolves via mlops-net
+        labels:
+          component: "api"
+          version:   "1.0.0"
+    # Add basic authentication if you secure the /metrics endpoint
+    # basic_auth:
+    #   username: "prometheus"
+    #   password: "secret"

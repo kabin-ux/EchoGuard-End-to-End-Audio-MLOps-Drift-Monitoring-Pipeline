@@ -1,0 +1,27 @@
+# ─── Web Framework ────────────────────────────────────────────────────────────
+fastapi>=0.111.0
+uvicorn[standard]>=0.29.0
+python-multipart>=0.0.9          # required for UploadFile support
+
+# ─── Machine Learning ─────────────────────────────────────────────────────────
+scikit-learn>=1.4.0
+numpy>=1.26.0
+scipy>=1.12.0
+joblib>=1.4.0
+
+# ─── Audio Processing ─────────────────────────────────────────────────────────
+librosa>=0.10.0
+soundfile>=0.12.0                # fast WAV/FLAC I/O backend for librosa
+audioread>=3.0.0                 # MP3 fallback decoder
+
+# ─── Monitoring / Observability ───────────────────────────────────────────────
+prometheus-client>=0.20.0
+
+# ─── Testing ──────────────────────────────────────────────────────────────────
+pytest>=8.0.0
+httpx>=0.24.0                    # async test client for FastAPI TestClient
+pytest-asyncio>=0.23.0
+
+# ─── Utilities ────────────────────────────────────────────────────────────────
+pydantic>=2.5.0
+python-dotenv>=1.0.0

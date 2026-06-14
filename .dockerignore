@@ -1,0 +1,43 @@
+# .dockerignore — exclude from Docker build context
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Tests (not needed in production image)
+test_main.py
+
+# CI/CD
+.github/
+
+# Documentation
+README.md
+*.md
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Grafana / Prometheus configs (mounted as volumes)
+monitoring/
