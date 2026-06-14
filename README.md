@@ -1,6 +1,6 @@
 # 🎵 Audio Genre Classification MLOps Pipeline
 
-[![CI](https://github.com/your-org/audio-genre-pipeline/actions/workflows/ci.yml/badge.svg)](https://github.com/your-org/audio-genre-pipeline/actions/workflows/ci.yml)
+![CI Pipeline](https://github.com/kabin-ux/EchoGuard-End-to-End-Audio-MLOps-Drift-Monitoring-Pipeline/actions/workflows/ci.yml/badge.badge.svg)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://python.org)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.111-009688.svg)](https://fastapi.tiangolo.com)
 [![Docker](https://img.shields.io/badge/Docker-Compose-2496ED.svg)](https://docker.com)
