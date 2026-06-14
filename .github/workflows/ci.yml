@@ -25,14 +25,14 @@ jobs:
 
   # ── Job 1: Lint + Unit Tests ───────────────────────────────────────────────
   test:
-    name: Lint & Test (Python ${{ env.PYTHON_VERSION }})
+    name: Lint & Test Engine
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Python ${{ env.PYTHON_VERSION }}
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: ${{ env.PYTHON_VERSION }}
