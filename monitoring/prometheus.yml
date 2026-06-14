@@ -34,7 +34,7 @@ scrape_configs:
           component: "prometheus"
 
   # ── FastAPI web service ───────────────────────────────────────────────────
-  - job_name: "audio-genre-api"
+  - job_name: "automated-real-time-audio-genre-classification-pipeline"
     scrape_interval: 5s          # Override global: faster refresh for ML metrics
     metrics_path: "/metrics"
     static_configs:
