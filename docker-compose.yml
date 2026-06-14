@@ -27,8 +27,9 @@ services:
       context: .
       dockerfile: Dockerfile
       target: runtime
-    container_name: audio-genre-api
-    image: audio-genre-api:latest
+    container_name: automated-real-time-audio-genre-classification-pipeline
+
+    image: automated-real-time-audio-genre-classification-pipeline:latest
     restart: unless-stopped
     ports:
       - "8000:8000"
