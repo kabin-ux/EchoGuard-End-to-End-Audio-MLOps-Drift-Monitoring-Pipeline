@@ -19,7 +19,7 @@ on:
 
 env:
   PYTHON_VERSION: "3.11"
-  IMAGE_NAME: automated-real-time-audio-genre-classification-pipeline
+  IMAGE_NAME: audio-genre-api
 
 jobs:
 
