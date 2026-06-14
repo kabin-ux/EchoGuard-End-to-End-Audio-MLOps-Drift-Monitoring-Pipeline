@@ -63,7 +63,7 @@ jobs:
       # ── Generate artifacts needed by tests ────────────────────────────────
       - name: Generate model & baseline artifacts
         run: |
-          python scripts/generate_artifacts.py
+          python scripts/generate_artifacts.py "data/genres_original" 
 
       # ── pytest ────────────────────────────────────────────────────────────
       - name: Run pytest with coverage
